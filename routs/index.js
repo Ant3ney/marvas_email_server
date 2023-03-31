@@ -10,6 +10,7 @@ module.exports = (app) => {
     console.log("in route");
     res.send("index route works");
   });
+  // proc update
   app.post("/sendMail", async (req, res) => {
     console.log("Sending mail");
     let message = req.body.message || "unset";
