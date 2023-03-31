@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email test</title>
+  </head>
+  <body>
+    <button>Send test</button>
+  </body>
+  <script>
+    const button = document.querySelector("button");
+    button.addEventListener("click", () => {
+      let body = JSON.stringify({
+        toEmail: "anthonycavuoti@gmail.com",
+        fromEmail: "potentialclient@gmail.com",
+        subject: "New email from PlanetMail.com!",
+        message:
+          "Hello Mr. Thompson Foo, I was wondering if your can fix my water cooler.",
+      });
+
+      fetch(`http://localhost:3001/sendMail`, {
+        method: "post",
+        body: body,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((status) => {
+          console.log("status data below");
+          console.log(status);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  </script>
+</html>
