@@ -16,7 +16,6 @@ module.exports = (app) => {
     let fromEmail = req.body.fromEmail || "unset";
     let subject = req.body.subject || "unset";
     let toEmail = req.body.toEmail || "anthonycavuoti@gmail.com";
-    //prok update
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
