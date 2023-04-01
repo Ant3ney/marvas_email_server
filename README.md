@@ -50,32 +50,32 @@ Example
 
 ```node
 let body = JSON.stringify({
-   toEmail: 'foobarmailerservice@gmail.com',
-   fromEmail: 'potentialclient@gmail.com',
-   subject: 'New email from PlanetMail.com!',
-   message:
-      'Hello Mr. Thompson Foo, I was wondering if your can fix my water cooler.',
+  toEmail: "foobarmailerservice@gmail.com",
+  fromEmail: "potentialclient@gmail.com",
+  subject: "New email from PlanetMail.com!",
+  message:
+    "Hello Mr. Thompson Foo, I was wondering if your can fix my water cooler.",
 });
 
 fetch(`https://www.example.com/sendMail`, {
-   method: 'post',
-   body: body,
-   headers: {
-      'Content-Type': 'application/json',
-   },
+  method: "post",
+  body: body,
+  headers: {
+    "Content-Type": "application/json",
+  },
 })
-   .then(res => {
-      return res.json();
-   })
-   .then(status => {
-      console.log('status data below');
-      console.log(status);
-      res.redirect('/successfullysentemail');
-   })
-   .catch(err => {
-      console.error(err);
-      res.redirect('/failedtosendemail');
-   });
+  .then((res) => {
+    return res.json();
+  })
+  .then((status) => {
+    console.log("status data below");
+    console.log(status);
+    res.redirect("/successfullysentemail");
+  })
+  .catch((err) => {
+    console.error(err);
+    res.redirect("/failedtosendemail");
+  });
 ```
 
 ## Final remarks
