@@ -26,6 +26,8 @@ module.exports = (app) => {
         pass: process.env.PASSWORD,
       },
     });
+
+    //prock update
     transporter
       .sendMail({
         from: fromEmail,
