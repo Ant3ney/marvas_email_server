@@ -12,7 +12,8 @@ module.exports = (app) => {
   });
   app.post("/sendMail", async (req, res) => {
     console.log("Sending mail");
-    let message = req.body.message || "unset";
+    let message = req.body.message || null;
+    let html = req.body.html || null;
     let fromEmail = req.body.fromEmail || "unset";
     let subject = req.body.subject || "unset";
     let toEmail = req.body.toEmail || "anthonycavuoti@gmail.com";
@@ -31,6 +32,7 @@ module.exports = (app) => {
         to: toEmail,
         subject: subject,
         text: message,
+        html,
       })
       .then(() => {
         res.status(200).json({ message: "Sent email sucessfully" });
